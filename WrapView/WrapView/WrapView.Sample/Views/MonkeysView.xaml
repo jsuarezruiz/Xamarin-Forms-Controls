@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WrapViewSample.Views.MonkeysView"   
+             xmlns:controls="clr-namespace:WrapView.Controls;assembly=WrapView"  
+             xmlns:templates="clr-namespace:WrapViewSample.Views.Templates;assembly=WrapViewSample"
+             Title="WrapView">
+    <controls:WrapView
+        ItemsSource="{Binding Monkeys}">
+        <controls:WrapView.ItemTemplate>
+            <DataTemplate>
+                <templates:MonkeyItemTemplate/>
+            </DataTemplate>
+        </controls:WrapView.ItemTemplate>
+    </controls:WrapView>
+</ContentPage>
