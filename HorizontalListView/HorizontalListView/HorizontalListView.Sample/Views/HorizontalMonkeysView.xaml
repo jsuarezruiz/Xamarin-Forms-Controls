@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="HorizontalListViewSample.Views.HorizontalMonkeysView"
+    xmlns:controls="clr-namespace:HorizontalListView.Controls;assembly=HorizontalListView"  
+    xmlns:templates="clr-namespace:HorizontalListViewSample.Views.Templates;assembly=HorizontalListViewSample"
+    Title="Horizontal">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <controls:HorizontalListView
+            Grid.Row="0"
+            ItemsSource="{Binding Monkeys}"
+            HeightRequest="200">
+            <controls:HorizontalListView.ItemTemplate>
+                <DataTemplate>
+                    <templates:MonkeyItemTemplate/>
+                </DataTemplate>
+            </controls:HorizontalListView.ItemTemplate>
+        </controls:HorizontalListView>
+    </Grid>
+</ContentPage>
