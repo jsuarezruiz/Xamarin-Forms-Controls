@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CustomOnPlatform.Views.MainView"
+             xmlns:helpers="clr-namespace:CustomOnPlatform.Helpers;assembly=CustomOnPlatform"
+             Title="">
+    <BoxView 
+        HorizontalOptions="Center"
+        VerticalOptions="Center"
+        HeightRequest="100"
+        WidthRequest="100">
+        <BoxView.BackgroundColor>
+            <helpers:CustomOnPlatform  
+                x:TypeArguments="Color"
+                Android="Red"
+                iOS="Blue"
+                WinPhone="Yellow"            
+                Windows="Green"/>
+        </BoxView.BackgroundColor>
+    </BoxView>
+</ContentPage>
