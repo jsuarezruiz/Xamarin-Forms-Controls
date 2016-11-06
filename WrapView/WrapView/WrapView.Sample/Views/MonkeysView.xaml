@@ -5,12 +5,25 @@
              xmlns:controls="clr-namespace:WrapView.Controls;assembly=WrapView"  
              xmlns:templates="clr-namespace:WrapViewSample.Views.Templates;assembly=WrapViewSample"
              Title="WrapView">
-    <controls:WrapView
-        ItemsSource="{Binding Monkeys}">
-        <controls:WrapView.ItemTemplate>
-            <DataTemplate>
-                <templates:MonkeyItemTemplate/>
-            </DataTemplate>
-        </controls:WrapView.ItemTemplate>
-    </controls:WrapView>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <controls:WrapView
+            Grid.Row="0"
+            ItemsSource="{Binding Monkeys}"
+            SelectedItem="{Binding SelectedMonkey, Mode=TwoWay}">
+            <controls:WrapView.ItemTemplate>
+                <DataTemplate>
+                    <templates:MonkeyItemTemplate/>
+                </DataTemplate>
+            </controls:WrapView.ItemTemplate>
+        </controls:WrapView>
+        <Label 
+            Grid.Row="1"
+            Text="{Binding SelectedMonkey.Name}"
+            TextColor="Black"
+            FontSize="Medium"/>
+    </Grid>
 </ContentPage>

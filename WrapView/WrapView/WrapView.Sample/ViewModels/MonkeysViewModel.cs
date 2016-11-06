@@ -6,7 +6,19 @@ namespace WrapViewSample.ViewModels
 {
     public class MonkeysViewModel : ViewModelBase
     {
+        private Monkey _selectedMonkey;
+
         public ObservableCollection<Monkey> Monkeys { get; set; }
+
+        public Monkey SelectedMonkey
+        {
+            get { return _selectedMonkey; }
+            set
+            {
+                _selectedMonkey = value;
+                RaisePropertyChanged();
+            }
+        }
 
         public MonkeysViewModel()
         {

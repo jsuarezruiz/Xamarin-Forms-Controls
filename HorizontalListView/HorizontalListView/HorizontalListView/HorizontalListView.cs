@@ -18,6 +18,16 @@ namespace HorizontalListView.Controls
           BindableProperty.Create("ItemsSource", typeof(IEnumerable), typeof(HorizontalListView), default(IEnumerable<object>),
               BindingMode.TwoWay, propertyChanged: ItemsSourceChanged);
 
+        public object SelectedItem
+        {
+            get { return (object)GetValue(SelectedItemProperty); }
+            set { SetValue(SelectedItemProperty, value); }
+        }
+
+        public static readonly BindableProperty SelectedItemProperty =
+            BindableProperty.Create("SelectedItem", typeof(object), typeof(HorizontalListView), default(object),
+                BindingMode.TwoWay, null);
+
         public DataTemplate ItemTemplate
         {
             get { return (DataTemplate)GetValue(ItemTemplateProperty); }
@@ -66,9 +76,17 @@ namespace HorizontalListView.Controls
         {
             var content = ItemTemplate.CreateContent();
             var view = content as View;
+
+            var tapEvent = new TapGestureRecognizer();
+            tapEvent.Tapped += (c, r) =>
+            {
+                SelectedItem = item;
+            };
+
             if (view == null)
                 return null;
 
+            view.GestureRecognizers.Add(tapEvent);
             view.BindingContext = item;
 
             return view;

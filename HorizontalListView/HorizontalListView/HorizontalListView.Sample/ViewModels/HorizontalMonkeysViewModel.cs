@@ -6,7 +6,19 @@ namespace HorizontalListViewSample.ViewModels
 {
     public class HorizontalMonkeysViewModel : ViewModelBase
     {
+        private Monkey _selectedMonkey;
+
         public ObservableCollection<Monkey> Monkeys { get; set; }
+
+        public Monkey SelectedMonkey
+        {
+            get { return _selectedMonkey; }
+            set
+            {
+                _selectedMonkey = value;
+                RaisePropertyChanged();
+            }
+        }
 
         public HorizontalMonkeysViewModel()
         {

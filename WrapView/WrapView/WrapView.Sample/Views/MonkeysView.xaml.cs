@@ -1,5 +1,4 @@
 ﻿using WrapView;
-using WrapViewSample.ViewModels;
 using Xamarin.Forms;
 
 namespace WrapViewSample.Views
@@ -15,18 +14,6 @@ namespace WrapViewSample.Views
             Parameter = parameter;
 
             BindingContext = App.Locator.MonkeysViewModel;
-        }
-
-        protected override void OnAppearing()
-        {
-            var viewModel = BindingContext as MonkeysViewModel;
-            if (viewModel != null) viewModel.OnAppearing(Parameter);
-        }
-
-        protected override void OnDisappearing()
-        {
-            var viewModel = BindingContext as MonkeysViewModel;
-            if (viewModel != null) viewModel.OnDisappearing();
         }
     }
 }
