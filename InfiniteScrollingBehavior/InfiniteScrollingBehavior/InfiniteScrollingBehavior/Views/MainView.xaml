@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="InfiniteScrollingBehavior.Views.MainView"	
+             xmlns:behavior="clr-namespace:InfiniteScrollingBehavior.Behaviors;assembly=InfiniteScrollingBehavior"
+             xmlns:templates="clr-namespace:InfiniteScrollingBehavior.Views.Templates;assembly=InfiniteScrollingBehavior"
+             Title="InfiniteScrollingBehavior">
+    <ListView
+        ItemsSource="{Binding Monkeys}">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <templates:MonkeyTemplate />
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+        <ListView.Behaviors>
+            <behavior:IniniteListScrollingBehavior
+                Command="{Binding RefreshCommand}">
+            </behavior:IniniteListScrollingBehavior>
+        </ListView.Behaviors>
+    </ListView>
+</ContentPage>
